@@ -23,8 +23,9 @@ docker run top
 #Téléchargez le binaire Docker Compose dans le /usr/local/bin avec wget ou curl :
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-Utilisez chmod pour rendre l'exécutable binaire Compose:
-sudo chmod +x /usr/local/bin/docker-compose
+
+#Utilisez chmod pour rendre l'exécutable binaire Compose:
+-sudo chmod +x /usr/local/bin/docker-compose
 
 Pour vérifier l'installation, utilisez la commande suivante qui imprime la version Composer:
 docker-compose --version
