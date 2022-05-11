@@ -6,12 +6,15 @@ le projet consiste à mettre en place un docker compose qui va etre constitué d
 #Installation du docker
 Sur notre machine virtual debian on installe le docker selon les etapes suivantes:
 Installation docker sur la machine virtuelle:
+
 sudo apt-get install docker-ce
 
 Mise en place du conteneur sur debian
- docker container run debian cmd
+
+docker container run debian cmd
 
 Verification de l'installation de docker
+
 docker run top
 
 #Installation de docker compose sur le debian
