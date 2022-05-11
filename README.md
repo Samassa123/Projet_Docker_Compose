@@ -25,5 +25,33 @@ docker-compose --version
 La sortie ressemblera à ceci:
 docker-compose version 1.23.1, build b02f1306 
 
+#Construction du projet :
+Une fois qu'on a installé docker compose dans laquelle on allait placé nos containers maintenant on va creer un site web(serveur) en python qui contiendra une phrase et qui va etre récupérée par un programme (client) en python
+
+On aura:
+-un fichier docker-compose.yml qui contiendra les instructions nécessaires à la creation des differents services
+-Un conteneur serveur qui contiendra des fichiers necessaires à la mise en place du serveur
+-Un conteneur client qui contiendra les fichiers nécessaires à la mise en place du client
+-Un conteneur firewall qui contiendra les fichiers necessaires à la mise en place de notre pare feu
+
+#Contenu de notre serveur:
+-Un fichier server.py qui contiendra le code du serveur
+-Un fichier index.html qui contiendra la phrase à afficher
+-Un fichier Dockerfile qui contiendra les instructions nécessaires pour créer l'environnement du serveur
+
+fichier server.py:
+#!/usr/bin/env python3
+import http.server
+import socketserver
+
+#Cette variable va gérer les requêtes de notre client sur le serveur.
+handler = http.server.SimpleHTTPRequestHandler
+
+#Ici nous définissons que nous voulons démarrer le serveur sur le port 1234
+with socketserver.TCPServer(("", 1234), handler) as httpd :
+
+#Cette instruction va maintenir le serveur en fonctionnement, en attendant les requêtes du client.
+httpd.serve_forever()
+
 
 
