@@ -61,16 +61,21 @@ On aura:
 fichier server.py:
 
 #!/usr/bin/env python3
+
 import http.server
+
 import socketserver
 
-#Cette variable va gérer les requêtes de notre client sur le serveur.
+#Cette variable va gérer les requêtes de notre client sur le serveur:
+
 handler = http.server.SimpleHTTPRequestHandler
 
-#Ici nous définissons que nous voulons démarrer le serveur sur le port 1234
+#Ici nous définissons que nous voulons démarrer le serveur sur le port 1234:
+
 with socketserver.TCPServer(("", 1234), handler) as httpd :
 
-#Cette instruction va maintenir le serveur en fonctionnement, en attendant les requêtes du client.
+#Cette instruction va maintenir le serveur en fonctionnement, en attendant les requêtes du client:
+
 httpd.serve_forever()
 
 
