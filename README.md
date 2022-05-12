@@ -78,5 +78,6 @@ with socketserver.TCPServer(("", 1234), handler) as httpd :
 
 httpd.serve_forever()
 
+#On créera ensuite un Dockerfile qui sera en charge de l'execution de notre fichier Python
 
 
