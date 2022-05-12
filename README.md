@@ -78,6 +78,18 @@ with socketserver.TCPServer(("", 1234), handler) as httpd :
 
 httpd.serve_forever()
 
+#Contenu de notre fichier index.html:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Docker Compose</title>
+</head>
+<body>
+    <h1>j'aime Docker Compose</h1>
+</body>
+</html>
+
 #On créera ensuite un Dockerfile qui sera en charge de l'execution de notre fichier Python
 
 
