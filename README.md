@@ -92,4 +92,21 @@ httpd.serve_forever()
 
 #On créera ensuite un Dockerfile qui sera en charge de l'execution de notre fichier Python
 
+#Nous écrivons 'python' pour le nom de l'image et 'latest' pour la version:
 
+FROM python:latest
+
+#Nous plaçons les fichiers dans le dossier '/server/' de l'image.
+
+ADD server.py /server/
+ADD index.html /server/
+
+'WORKDIR'
+
+#Cette commande change le répertoire de base de votre image.
+
+#Ici nous définissons '/server/' comme répertoire de base (où toutes les commandes seront exécutées).
+
+WORKDIR /server/
+
+#Contenu de notre conteneur client:
