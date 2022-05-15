@@ -70,9 +70,9 @@ import socketserver
 
 handler = http.server.SimpleHTTPRequestHandler
 
-#Ici nous définissons que nous voulons démarrer le serveur sur le port 1234:
+#Ici nous définissons que nous voulons démarrer le serveur sur le port 8080:
 
-with socketserver.TCPServer(("", 1234), handler) as httpd :
+with socketserver.TCPServer(("", 8080), handler) as httpd :
 
 #Cette instruction va maintenir le serveur en fonctionnement, en attendant les requêtes du client:
 
@@ -119,7 +119,7 @@ WORKDIR /server/
 
 import urllib.request
 
-fp = urllib.request.urlopen("http://localhost:1234/")
+fp = urllib.request.urlopen("http://localhost:8080/")
 
 #encodedContent correspond à la réponse du serveur encodée (index.html).
 
@@ -215,7 +215,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 #Retransmettre des requêtes HTTP à notre système de Serveur HTTP 
 
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 1234 -j DNAT --to 172.17.0.2:1234
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8080 -j DNAT --to 172.17.0.2:1234
 
 #Pour garder le container actif
 
@@ -256,10 +256,10 @@ build : server/
 
 commande : python ./server.py
 
-#Récupérer le port 1234 dans le conteneur (car c'est sur ce port que nous diffusons le serveur)
+#Récupérer le port 8080 dans le conteneur (car c'est sur ce port que nous diffusons le serveur)
 ports :
 
-    - 1234:1234
+    - 8080:8080
 
 #Deuxième service (conteneur) : le client
 
